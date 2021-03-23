@@ -1,0 +1,25 @@
+package no.hvl.dat107;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(schema = "forelesning3")
+public class Karakter {
+	
+	@Id private int karnr;
+	private String emneKode;
+	private String bokstav;
+	
+	@ManyToOne
+	@JoinColumn(name = "StudNr", referencedColumnName = "StudNr");
+	private Vitnemal vitnemal;
+	
+}

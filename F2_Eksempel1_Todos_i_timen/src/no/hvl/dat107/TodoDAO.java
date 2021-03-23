@@ -14,8 +14,7 @@ import javax.persistence.TypedQuery;
  */
 public class TodoDAO {
 	
-	private EntityManagerFactory emf 
-			= Persistence.createEntityManagerFactory("todoPersistenceUnit");
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("todoPersistenceUnit");
 	
 	/**
 	 * @param pk
@@ -41,8 +40,8 @@ public class TodoDAO {
 		EntityManager em = emf.createEntityManager();
 		
 		try {
-			TypedQuery<Todo> query = em.createQuery(
-					"SELECT t FROM Todo t", Todo.class);
+			TypedQuery<Todo> query = em.createQuery("SELECT t FROM Todo t", Todo.class);
+			
 			return query.getResultList();
 		
 		} finally {
@@ -54,8 +53,7 @@ public class TodoDAO {
 		EntityManager em = emf.createEntityManager();
 		
 		try {
-			TypedQuery<Todo> query = em.createQuery(
-					"SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
+			TypedQuery<Todo> query = em.createQuery("SELECT t FROM Todo t WHERE t.tekst = :tekst", Todo.class);
 			query.setParameter("tekst", tekst);
 			return query.getSingleResult(); //NB! Unntak hvis 0 eller flere.
 		
@@ -118,7 +116,13 @@ public class TodoDAO {
 		try {
 			tx.begin();
 			
-			Todo todo = em.find(Todo.class, pk);
+			//Alternativ 1
+			Todo todo = finnTodoMedPk(pk);
+			em.merge(todo);
+			
+			//Alternativ 2
+			//Todo todo = em.find(Todo.class, pk);
+			
 			em.remove(todo);
 			
 			tx.commit();

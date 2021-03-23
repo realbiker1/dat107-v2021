@@ -29,10 +29,10 @@ public class Main {
 		TodoDAO todoDAO = new TodoDAO();
 
 		// a)
-//		Todo todoa = todoDAO.finnTodoMedPk(2);
-//		
-//		System.out.println("\na) Hente ut todo med pk=2");
-//		System.out.println("   " + todoa);
+		Todo todoa = todoDAO.finnTodoMedPk(2);
+		
+		System.out.println("\na) Hente ut todo med pk=2");
+		System.out.println("   " + todoa);
 
 		
 		// b)
@@ -43,11 +43,11 @@ public class Main {
 
 		
 		// c)
-//		Todo todoci = todoDAO.finnTodoMedTekst("Handle mat");
-//		System.out.println(todoci);
-//				
-//		Todo todocii = todoDAO.finnTodoMedTekst("Vaske bilen");
-//		System.out.println(todocii);
+		Todo todoci = todoDAO.finnTodoMedTekst("Handle mat");
+		System.out.println(todoci);
+			
+		Todo todocii = todoDAO.finnTodoMedTekst("Vaske bilen");
+		System.out.println(todocii);
 		
 		List<Todo> todosciii = todoDAO.finnTodosMedTekst("Handle mat");
 		System.out.println(todosciii);
@@ -57,16 +57,16 @@ public class Main {
 		
 		
 		// d)
-//		System.out.println("\nd) Legge til en ny todo med pk=4");
-//
-//		Todo todony = new Todo(4, "Gjøre lekser");
-//		todoDAO.lagreNyTodo(todony);
-//		
-//		Todo todod = todoDAO.finnTodoMedPk(4);
-//		System.out.println("   Henter ut todo med pk=4");
-//		System.out.println("   " + todod);
-//	
-//		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=4 og tekst=Gjøre lekser.");
+		System.out.println("\nd) Legge til en ny todo med pk=5");
+
+		Todo todony = new Todo(5, "Ta ut av oppvaskmaskinen");
+		todoDAO.lagreNyTodo(todony);
+		
+		Todo todod = todoDAO.finnTodoMedPk(5);
+		System.out.println("   Henter ut todo med pk=5");
+		System.out.println("   " + todod);
+	
+		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=5 og tekst=Ta ut av oppvaskmaskinen.");
 //
 //		
 //		// e)

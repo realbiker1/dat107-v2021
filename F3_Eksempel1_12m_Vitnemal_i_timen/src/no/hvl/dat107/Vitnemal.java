@@ -13,26 +13,21 @@ import javax.persistence.Table;
 @Table(schema = "forelesning3")
 public class Vitnemal {
 
-	@Id
+	@Id 
 	private int studnr;
-	
-	private LocalDate studiestart;
-	private LocalDate studieslutt;
+	private LocalDate studieStart;
+	private LocalDate studieSlutt;
 	
 	@OneToMany(mappedBy = "vitnemal", fetch = FetchType.EAGER)
 	private List<Karakter> karakterer;
-	
-	public void leggTilKarakter(Karakter k) {
-		karakterer.add(k);
-	}
-	
+		
 	@Override
 	public String toString() {
-		return "Vitnemal [studnr=" + studnr + ", studiestart=" + studiestart 
-				+ ", studieslutt=" + studieslutt + ", karakterer=" + karakterer + "]";
+		return "Vitnemal [studnr=" + studnr + ", studieStart=" + studieStart + ", studieSlutt=" + studieSlutt + ", karakterer=" + karakterer + "]";
 	}
 
 	public void skrivUt() {
-		System.out.println(this);
+		System.out.println(toString());
 	}
+	
 }

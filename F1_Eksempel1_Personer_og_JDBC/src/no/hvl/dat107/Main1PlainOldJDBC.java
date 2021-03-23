@@ -11,7 +11,7 @@ public class Main1PlainOldJDBC {
 	static final String JDBC_DRIVER = "org.postgresql.Driver";
 	static final String DB_URL = "jdbc:postgresql://localhost:5432/dat107v21";
 	static final String USER = "postgres";
-	static final String PASS = "postgres";
+	static final String PASS = "pass";
 // 	static final String DB_URL = "jdbc:postgresql://data1.hib.no:5432/lars-petter";
 //	static final String USER = "lars-petter";
 //	static final String PASS = "passord";
