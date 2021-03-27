@@ -49,29 +49,33 @@ public class VitnemalDAO {
     }
     
     public Karakter registrerKarakterForStudent(int studNr, String emnekode, 
-    		LocalDate eksDato, String bokstav) {
+    		LocalDate eksdato, String bokstav) {
         
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
+     
+        Karakter k = null;
         
-        Karakter k;
         try {
         	tx.begin();
         	
-        	k = finnKarakter(studNr, emnekode);
+        	if (finnKarakter(studNr, emnekode) == null) {
+        		
+        		Vitnemal vitnemal = em.find(Vitnemal.class, studNr);
+        		k = new Karakter(emnekode, eksdato, bokstav, vitnemal);
+        		vitnemal.leggTilKarakter(k);
+        		em.persist(k);  
         	
-        	if(k == null) {
-            	Vitnemal vitnemal = em.find(Vitnemal.class, studNr);
-               	k = new Karakter(emnekode, eksDato, bokstav, vitnemal);
-            	em.persist(k);
-               	
         	} else {
-        		k.setEksDato(eksDato);
-        		k.setbokstav(bokstav);
+        		
+        		k = finnKarakter(studNr,emnekode);
+        		k.setEksdato(eksdato);
+        		k.setBokstav(bokstav);
         		em.merge(k);
         	}
+	        	    	
+        	tx.commit(); 
         	
-        	tx.commit();
         } finally {
             em.close();
         }

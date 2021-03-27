@@ -23,5 +23,5 @@ INSERT INTO
 VALUES
     (1, 'Handle mat'),
     (2, 'Vaske opp'),
-    (3, 'Ta ut bosset');
+    (3, 'Ta ut bdsset');
 

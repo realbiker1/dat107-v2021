@@ -20,6 +20,10 @@ public class Vitnemal {
 	
 	@OneToMany(mappedBy = "vitnemal", fetch = FetchType.EAGER)
 	private List<Karakter> karakterer;
+	
+	public void leggTilKarakter(Karakter k) {
+		karakterer.add(k);
+	}
 		
 	@Override
 	public String toString() {
@@ -29,5 +33,6 @@ public class Vitnemal {
 	public void skrivUt() {
 		System.out.println(toString());
 	}
+
 	
 }

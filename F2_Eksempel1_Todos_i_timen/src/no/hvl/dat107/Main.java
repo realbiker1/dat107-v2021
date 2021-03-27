@@ -46,7 +46,7 @@ public class Main {
 		Todo todoci = todoDAO.finnTodoMedTekst("Handle mat");
 		System.out.println(todoci);
 			
-		Todo todocii = todoDAO.finnTodoMedTekst("Vaske bilen");
+		Todo todocii = todoDAO.finnTodoMedTekst("Gjøre lekser");
 		System.out.println(todocii);
 		
 		List<Todo> todosciii = todoDAO.finnTodosMedTekst("Handle mat");
@@ -57,54 +57,16 @@ public class Main {
 		
 		
 		// d)
-		System.out.println("\nd) Legge til en ny todo med pk=5");
+		System.out.println("\nd) Legge til en ny todo med pk=6");
 
-		Todo todony = new Todo(5, "Ta ut av oppvaskmaskinen");
+		Todo todony = new Todo(6, "Mate fiskene");
 		todoDAO.lagreNyTodo(todony);
 		
-		Todo todod = todoDAO.finnTodoMedPk(5);
-		System.out.println("   Henter ut todo med pk=5");
+		Todo todod = todoDAO.finnTodoMedPk(6);
+		System.out.println("   Henter ut todo med pk=6");
 		System.out.println("   " + todod);
 	
-		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=5 og tekst=Ta ut av oppvaskmaskinen.");
-//
-//		
-//		// e)
-//		System.out.println("\ne) Slette todo med pk=4");
-//
-//		todoDAO.slettTodoMedPk(4);
-//
-//		Todo todoe = todoDAO.finnTodoMedPk(4);
-//		System.out.println("   Henter ut todo med pk=4");
-//		System.out.println("   " + todoe);
-//
-//		pauseOgSjekkDatabasen("\nSjekk at rad med id=4 er slettet igjen.");
-//
-//		
-//		// f)
-//		System.out.println("\nf) Endre tekst på todo med pk=3");
-//
-//		Todo todof1 = todoDAO.finnTodoMedPk(3);
-//		todof1.setTekst("Endret tekst " + LocalTime.now());
-//		todoDAO.oppdaterTodo(todof1);
-//
-//		Todo todof2 = todoDAO.finnTodoMedPk(3);
-//		System.out.println("   Henter ut todo med pk=3");
-//		System.out.println("   " + todof2);
-//
-//		pauseOgSjekkDatabasen("\nSjekk at rad med id=3 har fått oppdatert klokkeslett i tekst.");
-//
-//		
-//		// g)
-//		System.out.println("\ng) Endre tekst på todo med pk=3, alternativ måte");
-//
-//		todoDAO.oppdaterTekst(3, "Jobbe med DAT107-oblig");
-//
-//		Todo todog = todoDAO.finnTodoMedPk(3);
-//		System.out.println("   Henter ut todo med pk=3");
-//		System.out.println("   " + todog);
-//
-//		pauseOgSjekkDatabasen("\nSjekk at rad med id=3 har fått oppdatert tekst til 'Jobbe med DAT107-oblig'.");
+		pauseOgSjekkDatabasen("\nSjekk at vi har fått en ny rad med id=6 og tekst=Mate fiskene.");
 
 		System.out.println("\nProgrammet er ferdig! :)");
 	}

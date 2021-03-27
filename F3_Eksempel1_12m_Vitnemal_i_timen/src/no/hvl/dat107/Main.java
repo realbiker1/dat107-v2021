@@ -33,7 +33,7 @@ public class Main {
 		Karakter nyKarakter = vitnemalDAO.registrerKarakterForStudent(
 				123456, emnekodeRegistrering, LocalDate.of(2019, 12, 12), "C");
 		
-		System.out.println(nyKarakter);
+		System.out.println(nyKarakter);  
 		
 		vitnemal = vitnemalDAO.finnVitnemalForStudent(123456);
 		System.out.println("\n### Vitnemål for student 123456:");
